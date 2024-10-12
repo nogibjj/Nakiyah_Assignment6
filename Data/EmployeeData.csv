@@ -1,0 +1,101 @@
+Employee_ID,Age,Job_Role,Industry,Years_of_Experience,Work_Location,Hours_Worked_Per_Week
+EMP0001,32,HR,Healthcare,13,Hybrid,47
+EMP0002,40,Data Scientist,IT,3,Remote,52
+EMP0003,59,Software Engineer,Education,22,Hybrid,46
+EMP0004,27,Software Engineer,Finance,20,Onsite,32
+EMP0005,49,Sales,Consulting,32,Onsite,35
+EMP0006,59,Sales,IT,31,Hybrid,39
+EMP0007,31,Sales,IT,24,Remote,51
+EMP0008,42,Data Scientist,Manufacturing,6,Onsite,54
+EMP0009,56,Data Scientist,Healthcare,9,Hybrid,24
+EMP0010,30,HR,IT,28,Hybrid,57
+EMP0011,33,Software Engineer,Finance,17,Remote,48
+EMP0012,47,Marketing,Consulting,31,Hybrid,26
+EMP0013,40,Marketing,Consulting,1,Remote,21
+EMP0014,51,Designer,Manufacturing,5,Hybrid,45
+EMP0015,36,Project Manager,Retail,23,Remote,59
+EMP0016,56,Sales,Healthcare,13,Remote,44
+EMP0017,33,HR,Education,3,Onsite,52
+EMP0018,45,Data Scientist,Consulting,20,Onsite,37
+EMP0019,49,Software Engineer,IT,30,Remote,36
+EMP0020,59,Software Engineer,Consulting,13,Remote,59
+EMP0021,26,Sales,Retail,33,Hybrid,21
+EMP0022,26,Sales,Education,21,Onsite,54
+EMP0023,43,Sales,Finance,21,Onsite,57
+EMP0024,53,Marketing,Consulting,11,Onsite,22
+EMP0025,56,Sales,Finance,6,Remote,54
+EMP0026,49,Project Manager,Healthcare,23,Onsite,21
+EMP0027,36,Project Manager,Retail,30,Onsite,24
+EMP0028,53,Project Manager,Retail,31,Onsite,56
+EMP0029,47,Sales,IT,22,Onsite,33
+EMP0030,59,Software Engineer,Healthcare,34,Remote,25
+EMP0031,22,Data Scientist,IT,22,Onsite,20
+EMP0032,37,Marketing,Manufacturing,4,Hybrid,33
+EMP0033,45,Project Manager,Manufacturing,29,Remote,20
+EMP0034,48,Software Engineer,Healthcare,27,Remote,26
+EMP0035,36,Designer,IT,24,Hybrid,22
+EMP0036,46,Sales,Healthcare,28,Hybrid,57
+EMP0037,48,Sales,Finance,10,Onsite,30
+EMP0038,31,Designer,Healthcare,18,Remote,47
+EMP0039,24,Sales,IT,21,Onsite,48
+EMP0040,49,Marketing,Consulting,20,Hybrid,20
+EMP0041,30,Data Scientist,IT,22,Remote,44
+EMP0042,53,Project Manager,IT,14,Onsite,29
+EMP0043,54,Project Manager,Finance,26,Remote,58
+EMP0044,54,Designer,Manufacturing,12,Remote,53
+EMP0045,57,HR,Retail,13,Remote,23
+EMP0046,32,Marketing,Retail,24,Remote,42
+EMP0047,33,Data Scientist,Education,33,Remote,35
+EMP0048,30,Sales,Consulting,4,Remote,39
+EMP0049,22,HR,Healthcare,7,Onsite,29
+EMP0050,35,Project Manager,Retail,11,Onsite,37
+EMP0051,26,HR,Manufacturing,34,Onsite,28
+EMP0052,47,Sales,Consulting,25,Remote,31
+EMP0053,42,Software Engineer,Retail,3,Onsite,26
+EMP0054,60,Project Manager,Healthcare,34,Onsite,46
+EMP0055,26,Software Engineer,Education,5,Hybrid,55
+EMP0056,30,Project Manager,Education,8,Hybrid,47
+EMP0057,42,Software Engineer,IT,14,Remote,48
+EMP0058,53,HR,IT,7,Onsite,49
+EMP0059,26,Designer,Manufacturing,31,Remote,51
+EMP0060,26,Data Scientist,IT,17,Remote,57
+EMP0061,25,Sales,Consulting,4,Hybrid,33
+EMP0062,33,Sales,IT,14,Remote,30
+EMP0063,25,Project Manager,Finance,20,Hybrid,28
+EMP0064,22,Software Engineer,Healthcare,5,Onsite,31
+EMP0065,60,Data Scientist,Healthcare,18,Hybrid,37
+EMP0066,56,HR,Finance,9,Remote,31
+EMP0067,45,Software Engineer,IT,6,Hybrid,46
+EMP0068,60,Marketing,Education,32,Remote,20
+EMP0069,32,Designer,Manufacturing,23,Onsite,51
+EMP0070,25,Marketing,Finance,6,Remote,28
+EMP0071,43,Marketing,Consulting,23,Onsite,39
+EMP0072,50,Designer,Consulting,25,Remote,29
+EMP0073,28,Designer,Retail,15,Onsite,30
+EMP0074,23,Software Engineer,IT,29,Hybrid,53
+EMP0075,38,Project Manager,Consulting,35,Onsite,57
+EMP0076,42,Marketing,Retail,27,Onsite,49
+EMP0077,31,HR,Consulting,4,Onsite,55
+EMP0078,28,Marketing,Healthcare,25,Remote,37
+EMP0079,29,Data Scientist,Manufacturing,15,Remote,51
+EMP0080,27,Project Manager,Consulting,21,Hybrid,21
+EMP0081,54,Data Scientist,Education,5,Hybrid,21
+EMP0082,42,Software Engineer,Finance,33,Onsite,44
+EMP0083,58,HR,Education,32,Hybrid,26
+EMP0084,26,Project Manager,Healthcare,15,Hybrid,43
+EMP0085,56,Designer,Retail,9,Hybrid,42
+EMP0086,50,Designer,Finance,20,Hybrid,44
+EMP0087,55,Project Manager,Manufacturing,10,Onsite,27
+EMP0088,22,Data Scientist,Education,26,Hybrid,43
+EMP0089,24,Designer,Consulting,11,Remote,38
+EMP0090,53,Marketing,Healthcare,23,Hybrid,38
+EMP0091,57,Data Scientist,Retail,2,Onsite,57
+EMP0092,22,Software Engineer,Manufacturing,9,Onsite,60
+EMP0093,41,Data Scientist,IT,31,Onsite,29
+EMP0094,46,Data Scientist,Education,34,Remote,54
+EMP0095,60,Project Manager,Education,11,Onsite,31
+EMP0096,44,Project Manager,Manufacturing,2,Remote,54
+EMP0097,35,Data Scientist,Healthcare,31,Hybrid,33
+EMP0098,48,Designer,IT,32,Hybrid,25
+EMP0099,31,Data Scientist,Healthcare,19,Onsite,21
+EMP0100,53,Project Manager,IT,12,Hybrid,45
