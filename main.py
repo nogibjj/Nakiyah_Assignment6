@@ -1,74 +1,34 @@
 import sys
-from mylib.extractData import extractData
-from mylib.loadData import loadData, cleanData
-from mylib.queryData import queryData, createRecord, updateRecord, deleteRecord
+import argparse
+from mylib.extractDataNew import extractData
+from mylib.loadDataNew import loadData
 
+def handle_arguments(args):
+    """Handle command-line arguments and execute the corresponding function."""
+    parser = argparse.ArgumentParser(description="ETL and Query Logging CLI Tool")
+    
+    parser.add_argument("action", 
+                        choices=["extract", "load"], 
+                        help="Specify the action to perform")
+    
+    if args and args[0] == "log_query":
+        parser.add_argument("query", 
+                            help="SQL query to be logged")
+    
+    return parser.parse_args(args)
 
 def main():
-    if sys.argv[1] == "extract":
+    """Handle CLI commands."""
+    args = handle_arguments(sys.argv[1:])
+    
+    if args.action == "extract":
         print("Extracting data...")
         extractData()
-
-    elif sys.argv[1] == "load":
-        print("Transforming data...")
-        data = cleanData()
-        loadData(data)
-
-    elif sys.argv[1] == "query":
-        print("Querying data...")
-        queryData(20)
-
-    elif sys.argv[1] == "create":
-        id = sys.argv[2]
-        age = sys.argv[3]
-        jobrole = sys.argv[4]
-        industry = sys.argv[5]
-        experience = sys.argv[6]
-        worklocation = sys.argv[7]
-        hoursworked = sys.argv[8]
-        mhcondition = sys.argv[9]
-        access = sys.argv[10]
-        print("Create Record")
-        createRecord(
-            id,
-            age,
-            jobrole,
-            industry,
-            experience,
-            worklocation,
-            hoursworked,
-            mhcondition,
-            access,
-        )
-
-    elif sys.argv[1] == "update":
-        print("Updating selected record...")
-        id = sys.argv[2]
-        age = sys.argv[3]
-        jobrole = sys.argv[4]
-        industry = sys.argv[5]
-        experience = sys.argv[6]
-        worklocation = sys.argv[7]
-        hoursworked = sys.argv[8]
-        mhcondition = sys.argv[9]
-        access = sys.argv[10]
-        updateRecord(
-            id,
-            age,
-            jobrole,
-            industry,
-            experience,
-            worklocation,
-            hoursworked,
-            mhcondition,
-            access,
-        )
-
-    elif sys.argv[1] == "delete":
-        print("Deleting selected query...")
-        id = sys.argv[2]
-        deleteRecord(id)
-
+    elif args.action == "load":
+        print("Loading data to Databricks...")
+        loadData()
+    else:
+        print(f"Unknown action: {args.action}")
 
 if __name__ == "__main__":
     main()
