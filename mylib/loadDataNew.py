@@ -57,7 +57,7 @@ def loadData(employee_dataset="Data/EmployeeData.csv", mentalhealth_dataset="Dat
         print(f"Inserting {df_employee.shape[0]} rows into {employee_table}.")
 
         # Insert employee data using executemany for batch insertion
-        insert_employee_query = f"INSERT INTO {employee_table} VALUES (?, ?, ?, ?, ?, ?, ?)"
+        insert_employee_query = f"INSERT INTO {employee_table} VALUES (?, ?, ?, ?, ?, ?)"
         for index, row in df_employee.iterrows():
             try:
                 cursor.execute(insert_employee_query, tuple(row))
@@ -86,7 +86,7 @@ def loadData(employee_dataset="Data/EmployeeData.csv", mentalhealth_dataset="Dat
         # Insert mental health data
         if not df_mentalhealth.empty:
             print(f"Inserting {df_mentalhealth.shape[0]} rows into {mentalhealth_table}.")
-            insert_mentalhealth_query = f"INSERT INTO {mentalhealth_table} VALUES (?, ?, ?)"
+            insert_mentalhealth_query = f"INSERT INTO {mentalhealth_table} VALUES (?, ?, ?, ?)"
             for index, row in df_mentalhealth.iterrows():
                 try:
                     cursor.execute(insert_mentalhealth_query, tuple(row))
