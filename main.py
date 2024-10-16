@@ -1,8 +1,8 @@
 import sys
 import argparse
-from mylib.extractDataNew import extractData
-from mylib.loadDataNew import loadData
-
+from mylib.extractData import extractData
+from mylib.loadData import loadData
+from mylib.queryData import queryData
 
 def handle_arguments(args):
     """Handle command-line arguments and execute the corresponding function."""
@@ -28,6 +28,9 @@ def main():
     elif args.action == "load":
         print("Loading data to Databricks...")
         loadData()
+    elif args.action == "general_query":
+        print("Creating a general query...")
+        queryData()
     else:
         print(f"Unknown action: {args.action}")
 
