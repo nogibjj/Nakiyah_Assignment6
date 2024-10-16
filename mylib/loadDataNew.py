@@ -24,10 +24,8 @@ def loadData(employee_dataset="Data/EmployeeData.csv", mentalhealth_dataset="Dat
                      access_token=access_token) as connection:
         cursor = connection.cursor()
         
-        # Create the database if it doesn't exist
+        # Create and use the database if it doesn't exist
         cursor.execute(f"CREATE DATABASE IF NOT EXISTS {database_name}")
-        
-        # Use the specified database
         cursor.execute(f"USE {database_name}")
         
         # Drop the employee table if it exists
