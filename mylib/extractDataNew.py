@@ -41,8 +41,9 @@ def extractData(
         df_mentalhealth_list.append(df_mentalhealth)
 
     # Step 6: Concatenate all chunks into final DataFrames (limit to 100 rows)
-    df_employeedata = pd.concat(df_employeedata_list).head(100).copy()
-    df_mentalhealth = pd.concat(df_mentalhealth_list).head(100).copy()
+    n = 10
+    df_employeedata = pd.concat(df_employeedata_list).head(n).copy()
+    df_mentalhealth = pd.concat(df_mentalhealth_list).head(n).copy()
 
     # Step 7: Save the DataFrames into CSV files
     os.makedirs(os.path.dirname(csvFile1), exist_ok=True)

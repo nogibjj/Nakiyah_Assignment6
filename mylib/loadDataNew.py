@@ -74,7 +74,7 @@ def loadData(employee_dataset="Data/EmployeeData.csv", mentalhealth_dataset="Dat
             f"""
             CREATE TABLE IF NOT EXISTS {mentalhealth_table} (
                 Employee_ID STRING PRIMARY KEY, 
-                Hours_Worked_Per_Week INTEGER              
+                Hours_Worked_Per_Week INTEGER,             
                 Mental_Health_Condition STRING,               
                 Access_to_Mental_Health_Resources BOOLEAN
             )
