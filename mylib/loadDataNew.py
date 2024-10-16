@@ -42,8 +42,7 @@ def loadData(employee_dataset="Data/EmployeeData.csv", mentalhealth_dataset="Dat
                 Job_Role STRING,                              
                 Industry STRING,                              
                 Years_of_Experience INTEGER,                
-                Work_Location STRING,                         
-                Hours_Worked_Per_Week INTEGER              
+                Work_Location STRING                         
             )
             """
         )
@@ -75,6 +74,7 @@ def loadData(employee_dataset="Data/EmployeeData.csv", mentalhealth_dataset="Dat
             f"""
             CREATE TABLE IF NOT EXISTS {mentalhealth_table} (
                 Employee_ID STRING PRIMARY KEY, 
+                Hours_Worked_Per_Week INTEGER              
                 Mental_Health_Condition STRING,               
                 Access_to_Mental_Health_Resources BOOLEAN
             )
@@ -94,9 +94,6 @@ def loadData(employee_dataset="Data/EmployeeData.csv", mentalhealth_dataset="Dat
                     print(f"Error inserting row {index}: {e}")
 
             print("All mental health data inserted successfully.")
-
-    # No need to call cursor.close() as the connection context manager handles it.
-
     return "Data loaded successfully"
 
 loadData()

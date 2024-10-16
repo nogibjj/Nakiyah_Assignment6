@@ -26,8 +26,8 @@ def general_query(query):
         http_path=http_path,
         access_token=access_token,
     ) as connection:
-        c = connection.cursor()
-        c.execute(query)
-        result = c.fetchall()
-    c.close()
+        cursor = connection.cursor()
+        cursor.execute(query)
+        result = cursor.fetchall()
+    cursor.close()
     log_query(f"{query}", result)

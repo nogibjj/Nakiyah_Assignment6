@@ -23,17 +23,17 @@ def extractData(
     chunk_size = 1000  # Adjust based on dataset size
 
     for chunk in pd.read_csv(csv_file, chunksize=chunk_size):
-        df_employeedata = chunk[['Employee_ID', 'Age', 'Job_Role', 'Industry', 'Years_of_Experience', 'Work_Location', 'Hours_Worked_Per_Week']].copy()
-        df_mentalhealth = chunk[['Employee_ID', 'Mental_Health_Condition', 'Access_to_Mental_Health_Resources']].copy()
+        df_employeedata = chunk[['Employee_ID', 'Age', 'Job_Role', 'Industry', 'Years_of_Experience', 'Work_Location']].copy()
+        df_mentalhealth = chunk[['Employee_ID', 'Hours_Worked_Per_Week', 'Mental_Health_Condition', 'Access_to_Mental_Health_Resources']].copy()
 
         # Step 3: Clean the employee data
         df_employeedata['Age'] = pd.to_numeric(df_employeedata['Age'], errors='coerce')
         df_employeedata['Years_of_Experience'] = pd.to_numeric(df_employeedata['Years_of_Experience'], errors='coerce')
-        df_employeedata['Hours_Worked_Per_Week'] = pd.to_numeric(df_employeedata['Hours_Worked_Per_Week'], errors='coerce')
         df_employeedata.dropna(inplace=True)
 
         # Step 4: Clean the mental health data
         df_mentalhealth['Access_to_Mental_Health_Resources'] = df_mentalhealth['Access_to_Mental_Health_Resources'].map({'Yes': True, 'No': False})
+        df_mentalhealth['Hours_Worked_Per_Week'] = pd.to_numeric(df_mentalhealth['Hours_Worked_Per_Week'], errors='coerce')
         df_mentalhealth.dropna(inplace=True)
 
         # Step 5: Append cleaned chunks to the lists
