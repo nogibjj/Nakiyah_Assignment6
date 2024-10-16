@@ -9,17 +9,17 @@ def handle_arguments(args):
     parser = argparse.ArgumentParser(description="ETL and Query Logging CLI Tool")
 
     parser.add_argument(
-        "action", choices=["extract", "load"], help="Specify the action to perform"
+        "action", choices=["extract", "load", "general_query"], help="Specify the action to perform"
     )
 
-    if args and args[0] == "log_query":
-        parser.add_argument("query", help="SQL query to be logged")
-
+    parser.add_argument(
+        "query", nargs='?', help="SQL query to be executed", default=None
+    )
     return parser.parse_args(args)
 
 
 def main():
-    """Handle CLI commands."""
+
     args = handle_arguments(sys.argv[1:])
 
     if args.action == "extract":
@@ -30,7 +30,7 @@ def main():
         loadData()
     elif args.action == "general_query":
         print("Creating a general query...")
-        queryData()
+        queryData(args.query)
     else:
         print(f"Unknown action: {args.action}")
 
