@@ -1,5 +1,6 @@
 import subprocess
 
+
 def test_extract():
     """Tests the extractData function."""
     try:
@@ -16,6 +17,7 @@ def test_extract():
         print("Extract stderr:", e.stderr)
         raise
 
+
 def test_load():
     """Tests the loadData function."""
     try:
@@ -31,6 +33,7 @@ def test_load():
         print("Load stdout:", e.stdout)
         print("Load stderr:", e.stderr)
         raise
+
 
 def test_general_query():
     """Tests the general query execution."""
@@ -59,7 +62,8 @@ def test_general_query():
         print("Query stderr:", e.stderr)
         raise
 
+
 if __name__ == "__main__":
     test_extract()  # To test extract functionality
-    test_load()     # To test load functionality
+    test_load()  # To test load functionality
     test_general_query()  # To test query functionality
