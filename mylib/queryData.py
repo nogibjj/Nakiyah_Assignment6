@@ -20,7 +20,7 @@ def queryData(query):
     server_h = os.getenv("SERVER_HOSTNAME")
     access_token = os.getenv("ACCESS_TOKEN")
     http_path = os.getenv("HTTP_PATH")
-    
+
     with sql.connect(
         server_hostname=server_h,
         http_path=http_path,
@@ -52,6 +52,5 @@ sqlCommand = """SELECT
         LIMIT 10"""
     
 queryData(sqlCommand)
-        # cursor.execute(query)
-        # result = cursor.fetchall()
+
 

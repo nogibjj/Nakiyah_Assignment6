@@ -4,16 +4,19 @@ from mylib.extractData import extractData
 from mylib.loadData import loadData
 from mylib.queryData import queryData
 
+
 def handle_arguments(args):
     """Handle command-line arguments and execute the corresponding function."""
     parser = argparse.ArgumentParser(description="ETL and Query Logging CLI Tool")
 
     parser.add_argument(
-        "action", choices=["extract", "load", "general_query"], help="Specify the action to perform"
+        "action",
+        choices=["extract", "load", "general_query"],
+        help="Specify the action to perform",
     )
 
     parser.add_argument(
-        "query", nargs='?', help="SQL query to be executed", default=None
+        "query", nargs="?", help="SQL query to be executed", default=None
     )
     return parser.parse_args(args)
 

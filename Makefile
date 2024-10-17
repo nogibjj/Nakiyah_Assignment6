@@ -30,7 +30,7 @@ generate_and_push:
 extract:
 	python main.py extract
 
-transform_load: 
+load: 
 	python main.py load
 
 query:

@@ -56,9 +56,3 @@ def extractData(
 
 # Execute the function
 extractData()
-
-
-def logQuery(query):
-    """adds to a query markdown file"""
-    with open("queryLog.md", "a") as file:
-        file.write(f"```sql\n{query}\n```\n\n")
