@@ -42,17 +42,36 @@ Complex Query Execution: After the data is loaded, the pipeline allows for runni
 
 ![SQLQuery](SQLQuery.png)
 
-The complex SQL query joins two tables (nd191_employee_data and nd191_mentalhealth_data), groups by job role, and calculates the average years of experience and hours worked per week for each role. Results are sorted in descending order of job role, with a limit of 10 rows.
-
-
+The complex SQL query joins two tables (nd191_employee_data and nd191_mentalhealth_data), groups by job role, and calculates the average years of experience and hours worked per week for each role. Results are sorted in descending order of job role, with a limit of 5 rows.
 Every time a query is executed, the SQL command and its corresponding Databricks response are logged in a file (complexQueryLog.md). This allows tracking the results and keeping an audit trail.
 
-Usage
-The pipeline can be run from the command line:
+![QueryResults](QueryResults.png)
 
-Data extraction: python3 main.py extract
+
+Usage
+The pipeline can also be run from the command line:
+
+Data extraction: 
+```python
+python3 main.py extract
+```
+```python
 Data loading: python3 main.py load
-Run a SQL query: python3 main.py query "SELECT * FROM nd191_employee_data;"
+```
+```python
+Run a SQL query: python3 main.py query 
+    """
+        SELECT employee.Job_Role, 
+               AVG(employee.Years_of_Experience) AS avg_years_of_experience, 
+               AVG(mentalhealth.Hours_Worked_Per_Week) AS avg_hours_worked_per_week
+        FROM nd191_assignment6.nd191_employee_data employee
+        JOIN nd191_assignment6.nd191_mentalhealth_data mentalhealth 
+        ON employee.Employee_ID = mentalhealth.Employee_ID
+        GROUP BY employee.Job_Role
+        ORDER BY Job_Role DESC
+        LIMIT 5;
+    """
+```
 The repository uses environment variables and Databricks credentials (stored in an .env file) for secure connection and execution.
 
 Project Testing
