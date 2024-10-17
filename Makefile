@@ -14,7 +14,7 @@ all: install format lint test
 
 generate_and_push:
 	# Create the markdown file 
-	python test_main.py  # Replace with the actual command to generate the markdown
+	python test.py  # Replace with the actual command to generate the markdown
 
 	# Add, commit, and push the generated files to GitHub
 	@if [ -n "$$(git status --porcelain)" ]; then \
@@ -31,7 +31,7 @@ extract:
 	python main.py extract
 
 transform_load: 
-	python main.py transform_load
+	python main.py load
 
 query:
 	python main.py general_query """SELECT 
