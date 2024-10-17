@@ -6,7 +6,6 @@ from mylib.queryData import query
 
 
 def handle_arguments(args):
-    """Handle command-line arguments and execute the corresponding function."""
     parser = argparse.ArgumentParser(description="ETL and Query Logging CLI Tool")
 
     parser.add_argument(

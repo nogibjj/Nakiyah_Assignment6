@@ -1,9 +1,9 @@
 # Nakiyah_Assignment6
+## Project: ETL-Query Pipeline with Databricks
 
 [![CI](https://github.com/nogibjj/Nakiyah_Assignment6/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/Nakiyah_Assignment6/actions/workflows/cicd.yml)
 
-# Project: ETL-Query Pipeline with Databricks
-
+## File Structure
 ```
 Nakiyah_Assignment6/
 ├── .devcontainer/
@@ -20,12 +20,14 @@ Nakiyah_Assignment6/
 │   ├── extractData.py
 │   ├── loadData.py
 │   └── queryData.py
+├── SQLQuery.png
+├── QueryResults.png
 ├── main.py
 ├── test.py
 ├── Makefile
 ├── README.md
 ├── Requirements.txt
-└── complecxQueryLog.md
+└── complexQueryLog.md
 
 ```
 ## Purpose of this project
@@ -42,24 +44,28 @@ Complex Query Execution: After the data is loaded, the pipeline allows for runni
 
 ![SQLQuery](SQLQuery.png)
 
-The complex SQL query joins two tables (nd191_employee_data and nd191_mentalhealth_data), groups by job role, and calculates the average years of experience and hours worked per week for each role. Results are sorted in descending order of job role, with a limit of 5 rows.
+The complex SQL query joins the nd191_employee_data and nd191_mentalhealth_data tables to group data by job role, calculating the average years of experience and average hours worked per week for each role. The results are sorted in descending order by job role, with a limit of five rows returned.
 Every time a query is executed, the SQL command and its corresponding Databricks response are logged in a file (complexQueryLog.md). This allows tracking the results and keeping an audit trail.
 
 ![QueryResults](QueryResults.png)
 
 
-Usage
+### Usage
 The pipeline can also be run from the command line:
 
 Data extraction: 
 ```python
 python3 main.py extract
 ```
+
+Data loading: 
 ```python
-Data loading: python3 main.py load
+python3 main.py load
 ```
+
+Runing a complex SQL query: 
 ```python
-Run a SQL query: python3 main.py query 
+python3 main.py query 
     """
         SELECT employee.Job_Role, 
                AVG(employee.Years_of_Experience) AS avg_years_of_experience, 
@@ -72,6 +78,8 @@ Run a SQL query: python3 main.py query
         LIMIT 5;
     """
 ```
+
+
 The repository uses environment variables and Databricks credentials (stored in an .env file) for secure connection and execution.
 
 Project Testing
