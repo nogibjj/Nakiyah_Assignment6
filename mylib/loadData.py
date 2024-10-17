@@ -16,7 +16,7 @@ def loadData(employee_dataset="Data/EmployeeData.csv", mentalhealth_dataset="Dat
 
     load_dotenv()
     server_h = os.getenv("SERVER_HOSTNAME")
-    access_token = os.getenv("PERSONAL_ACCESS_TOKEN")
+    access_token = os.getenv("ACCESS_TOKEN")
     http_path = os.getenv("HTTP_PATH")
     
     with sql.connect(server_hostname=server_h,
