@@ -14,8 +14,7 @@ def logQuery(query, result="none"):
         file.write(f"```response from databricks\n{result}\n```\n\n")
 
 
-def queryData(query):
-
+def query(query):
     load_dotenv()
     server_h = os.getenv("SERVER_HOSTNAME")
     access_token = os.getenv("ACCESS_TOKEN")
@@ -31,26 +30,11 @@ def queryData(query):
         try:
             cursor.execute(query)
             result = cursor.fetchall()
+            logQuery(query, result)  # Log the result only after successful execution
+            return result  # Optional: return result if needed
         except Exception as e:
             print(f"Error executing query: {e}")
             logQuery(query, str(e))
             raise  # Re-raise the exception after logging
         finally:
             cursor.close()
-        logQuery(f"{query}", result)
-
-sqlCommand = """SELECT 
-            employee.Job_Role,
-            AVG(employee.Years_of_Experience) AS avg_years_of_experience,
-            AVG(mentalhealth.Hours_Worked_Per_Week) AS avg_hours_worked_per_week
-        FROM 
-            nd191_assignment6.nd191_employee_data employee
-        JOIN 
-            nd191_assignment6.nd191_mentalhealth_data mentalhealth ON employee.Employee_ID = mentalhealth.Employee_ID
-        GROUP BY employee.Job_Role
-        ORDER BY Job_Role DESC
-        LIMIT 10"""
-    
-queryData(sqlCommand)
-
-
