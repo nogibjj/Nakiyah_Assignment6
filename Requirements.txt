@@ -7,7 +7,6 @@ pylint==2.15.3
 ## Misc. Packages
 numpy==1.24.2
 matplotlib==3.7.1
-fpdf==1.7.2
 nbval==0.11.0
 ruff==0.6.5
 polars==1.7.1
