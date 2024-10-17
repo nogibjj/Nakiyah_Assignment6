@@ -36,7 +36,6 @@ def test_load():
 
 
 def test_general_query():
-    """Tests the general query execution."""
     query = """
         SELECT employee.Job_Role, 
                AVG(employee.Years_of_Experience) AS avg_years_of_experience, 
@@ -46,7 +45,7 @@ def test_general_query():
         ON employee.Employee_ID = mentalhealth.Employee_ID
         GROUP BY employee.Job_Role
         ORDER BY Job_Role DESC
-        LIMIT 10;
+        LIMIT 5;
     """
     try:
         result = subprocess.run(

@@ -41,7 +41,7 @@ def extractData(
         df_mentalhealth_list.append(df_mentalhealth)
 
     # Step 6: Concatenate all chunks into final DataFrames (limit to 100 rows)
-    n = 10
+    n = 100
     df_employeedata = pd.concat(df_employeedata_list).head(n).copy()
     df_mentalhealth = pd.concat(df_mentalhealth_list).head(n).copy()
 
