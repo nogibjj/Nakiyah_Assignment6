@@ -1,9 +1,11 @@
 # Nakiyah_Assignment6
 
-[![cicd](https://github.com/nogibjj/Nakiyah_Assignment5/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/Nakiyah_Assignment5/actions/workflows/cicd.yml)
+[![CI](https://github.com/nogibjj/Nakiyah_Assignment6/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/Nakiyah_Assignment6/actions/workflows/cicd.yml)
+
+# Project: ETL-Query Pipeline with Databricks
 
 ```
-Nakiyah_Assignment5/
+Nakiyah_Assignment6/
 ├── .devcontainer/
 │   ├── devcontainer.json
 │   └── Dockerfile
@@ -11,6 +13,8 @@ Nakiyah_Assignment5/
 │   └── workflows/cicd.yml
 ├── .gitignore
 ├── Data/
+│   ├── EmployeeData.csv
+│   ├── MentalHealthData.csv
 │   └── Impact_of_Remote_Work_on_Mental_Health.csv
 ├── mylib/
 │   ├── extractData.py
@@ -21,9 +25,7 @@ Nakiyah_Assignment5/
 ├── Makefile
 ├── README.md
 ├── Requirements.txt
-├── database1.db
-├── testOutputs.md
-└── queryLog.md
+└── complecxQueryLog.md
 
 ```
 ## Purpose of this project
@@ -31,8 +33,8 @@ Nakiyah_Assignment5/
 ### Project Overview
 This project implements an ETL (Extract, Transform, Load) pipeline that processes data from external public datasets and stores it in a SQLite database. The key stages of the pipeline are as follows:
 
-Extract: 
-Data is fetched from a public GitHub repository and loaded into a local CSV file.
+extractData: 
+Data is fetched from a public GitHub repository, split, and loaded into 2 local CSV's file: EmployeeData & MentalHealthData
 
 Transform & Load: 
 The CSV file is cleaned and pre-processed, ensuring the data is structured correctly and ready for analysis. The cleaned data is then loaded into a SQLite .db file, where it can be efficiently queried for further analysis.

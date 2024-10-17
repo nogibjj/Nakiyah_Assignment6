@@ -2,7 +2,7 @@ import sys
 import argparse
 from mylib.extractData import extractData
 from mylib.loadData import loadData
-from mylib.query import query
+from mylib.queryData import query
 
 
 def handle_arguments(args):

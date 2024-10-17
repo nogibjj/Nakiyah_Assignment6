@@ -34,7 +34,7 @@ def loadData(employee_dataset="Data/EmployeeData.csv", mentalhealth_dataset="Dat
         # Create employee data table
         cursor.execute(
             f"""
-            CREATE TABLE IF NOT EXISTS {employee_table} (
+            CREATE TABLE {employee_table} (
                 Employee_ID STRING PRIMARY KEY, 
                 Age INTEGER,                                
                 Job_Role STRING,                              
@@ -70,7 +70,7 @@ def loadData(employee_dataset="Data/EmployeeData.csv", mentalhealth_dataset="Dat
         # Create mental health data table
         cursor.execute(
             f"""
-            CREATE TABLE IF NOT EXISTS {mentalhealth_table} (
+            CREATE TABLE {mentalhealth_table} (
                 Employee_ID STRING PRIMARY KEY, 
                 Hours_Worked_Per_Week INTEGER,             
                 Mental_Health_Condition STRING,               
@@ -94,4 +94,3 @@ def loadData(employee_dataset="Data/EmployeeData.csv", mentalhealth_dataset="Dat
             print("All mental health data inserted successfully.")
     return "Data loaded successfully"
 
-loadData()

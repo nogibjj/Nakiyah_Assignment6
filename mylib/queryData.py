@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 
 # Define a global variable for the log file
-LOG_FILE = "query_log.md"
+LOG_FILE = "complecxQueryLog.md"
 
 
 def logQuery(query, result="none"):

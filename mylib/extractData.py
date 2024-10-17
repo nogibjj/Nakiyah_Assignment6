@@ -54,5 +54,3 @@ def extractData(
 
     print(f"Data has been saved into two CSV files: '{csvFile1}' and '{csvFile2}'")
 
-# Execute the function
-extractData()
