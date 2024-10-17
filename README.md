@@ -61,6 +61,7 @@ Update using updateRecord() --> This function updates an existing record in the 
 python3 main.py update "EMP90005", 28, "Software Engineer", "Tech", 3, "Onsite", 45, "Anxiety", False 
 ```
 
+
 Delete using deleteRecord() --> This function deletes a record from the worker_health table based on Employee ID
 ```python
 python3 main.py delete "EMP90006"
