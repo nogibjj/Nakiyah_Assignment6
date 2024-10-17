@@ -33,7 +33,10 @@ Nakiyah_Assignment6/
 ## Purpose of this project
 
 ### Project Overview
-This project implements an ETL (Extract, Transform, Load) pipeline that processes data from external public datasets and stores it in a SQLite database. The key stages of the pipeline are as follows:
+This project implements an ETL (Extract, Transform, Load) pipeline that processes data from external public datasets and stores it in a Databricks SQL database. The repository uses environment variables and Databricks credentials (stored in an .env file) for secure connection and execution.
+
+
+### The key stages of the pipeline are as follows:
 
 Extract: Data is fetched from a public GitHub repository, split into two DataFrames, cleaned, and saved into CSV files.
 Transform: The CSV files are read into pandas DataFrames, processed, and prepared for insertion into Databricks SQL tables, which includes cleaning and transforming the data formats.
@@ -79,8 +82,11 @@ python3 main.py query
     """
 ```
 
+Log Ouput:
+```
+[Row(Job_Role='Software Engineer', avg_years_of_experience=17.8, avg_hours_worked_per_week=42.333333333333336), Row(Job_Role='Sales', avg_years_of_experience=19.3125, avg_hours_worked_per_week=41.0), Row(Job_Role='Project Manager', avg_years_of_experience=19.72222222222222, avg_hours_worked_per_week=39.05555555555556), Row(Job_Role='Marketing', avg_years_of_experience=18.916666666666668, avg_hours_worked_per_week=31.25), Row(Job_Role='HR', avg_years_of_experience=15.0, avg_hours_worked_per_week=39.7)]
+```
 
-The repository uses environment variables and Databricks credentials (stored in an .env file) for secure connection and execution.
 
 Project Testing
 Automated tests in test.py use subprocess calls to run the CLI commands and verify that each step of the ETL process and querying works as expected.
