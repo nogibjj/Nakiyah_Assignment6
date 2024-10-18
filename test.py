@@ -2,67 +2,89 @@ import subprocess
 
 
 def test_extract():
-    """Tests the extractData function."""
-    try:
-        result = subprocess.run(
-            ["python3", "main.py", "extract"],
-            capture_output=True,
-            text=True,
-            check=True,
-        )
-        print("Extract Output:")
-        print(result.stdout)  # Print output for verification
-    except subprocess.CalledProcessError as e:
-        print("Extract stdout:", e.stdout)
-        print("Extract stderr:", e.stderr)
-        raise
+    """Test extractData()"""
+    result = subprocess.run(
+        ["python3", "main.py", "extract"],
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    assert (
+        result.returncode == 0
+    ), f"Extract failed with return code {result.returncode}"
+    assert (
+        "Extracting data..." in result.stdout
+    ), "Expected 'Extracting data...' in output"
+    print("Extract Test Passed!")
 
 
 def test_load():
-    """Tests the loadData function."""
-    try:
-        result = subprocess.run(
-            ["python3", "main.py", "load"],
-            capture_output=True,
-            text=True,
-            check=True,
+    """Test loadData()"""
+    result = subprocess.run(
+        ["python3", "main.py", "load"],
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    assert result.returncode == 0, f"Load failed with return code {result.returncode}"
+    assert (
+        "Loading data to Databricks..." in result.stdout
+    ), "Expected 'Loading data to Databricks...' in output"
+    print("Load Test Passed!")
+
+
+def test_query():
+    """Test queryData() with a complex SQL query"""
+    query_string = """
+        WITH all_matches AS (
+            SELECT '2019' AS season, Team1 AS team, Team2 AS opponent, 
+                CAST(SPLIT_PART(FT, '-', 1) AS INT) AS goals_scored,
+                CAST(SPLIT_PART(FT, '-', 2) AS INT) AS goals_conceded
+            FROM MatchResults2019DB
+            UNION ALL
+            SELECT 'previous' AS season, Team1 AS team, Team2 AS opponent, 
+                CAST(SPLIT_PART(FT, '-', 1) AS INT) AS goals_scored,
+                CAST(SPLIT_PART(FT, '-', 2) AS INT) AS goals_conceded
+            FROM MatchResultsDB
+        ),
+        team_matches AS (
+            SELECT team, opponent, 
+                AVG(goals_scored) AS avg_goals_scored, 
+                COUNT(*) AS total_matches_played
+            FROM all_matches
+            WHERE team IN (
+                SELECT DISTINCT team FROM (
+                    SELECT Team1 AS team FROM MatchResults2019DB
+                    UNION ALL
+                    SELECT Team2 AS team FROM MatchResults2019DB
+                    INTERSECT
+                    SELECT Team1 AS team FROM MatchResultsDB
+                    UNION ALL
+                    SELECT Team2 AS team FROM MatchResultsDB
+                ) AS common_teams
+            )
+            GROUP BY team, opponent
         )
-        print("Load Output:")
-        print(result.stdout)  # Print output for verification
-    except subprocess.CalledProcessError as e:
-        print("Load stdout:", e.stdout)
-        print("Load stderr:", e.stderr)
-        raise
 
-
-def test_general_query():
-    query = """
-        SELECT employee.Job_Role, 
-               AVG(employee.Years_of_Experience) AS avg_years_of_experience, 
-               AVG(mentalhealth.Hours_Worked_Per_Week) AS avg_hours_worked_per_week
-        FROM nd191_assignment6.nd191_employee_data employee
-        JOIN nd191_assignment6.nd191_mentalhealth_data mentalhealth 
-        ON employee.Employee_ID = mentalhealth.Employee_ID
-        GROUP BY employee.Job_Role
-        ORDER BY Job_Role DESC
-        LIMIT 5;
+        SELECT team, opponent, avg_goals_scored, total_matches_played
+        FROM team_matches
+        ORDER BY total_matches_played DESC
+        LIMIT 10;
     """
-    try:
-        result = subprocess.run(
-            ["python3", "main.py", "query", query],
-            capture_output=True,
-            text=True,
-            check=True,
-        )
-        print("General Query Output:")
-        print(result.stdout)  # Print output for verification
-    except subprocess.CalledProcessError as e:
-        print("Query stdout:", e.stdout)
-        print("Query stderr:", e.stderr)
-        raise
+
+    result = subprocess.run(
+        ["python3", "main.py", "query", query_string],
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    assert result.returncode == 0, f"Query failed with return code {result.returncode}"
+    assert "team" in result.stdout, "Expected 'team' in the query result"
+    assert "opponent" in result.stdout, "Expected 'opponent' in the query result"
+    print("Query Test Passed!")
 
 
 if __name__ == "__main__":
-    test_extract()  # To test extract functionality
-    test_load()  # To test load functionality
-    test_general_query()  # To test query functionality
+    test_extract()
+    test_load()
+    test_query()
