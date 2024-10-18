@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 # Define a global variable for the log file
 LOG_FILE = "complexQueryLog.md"
 
-
 def logQuery(query, result="none"):
     """adds to a query markdown file"""
     with open(LOG_FILE, "a") as file:
