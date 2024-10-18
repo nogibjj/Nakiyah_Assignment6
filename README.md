@@ -42,10 +42,10 @@ loading into Databricks, and executing complex queries.
 
 ### The key stages of the pipeline are as follows:
 
-Extract: Data is fetched from a public GitHub repository, split into two DataFrames, cleaned, and saved into CSV files.
-Transform: The CSV files are read into pandas DataFrames, processed, and prepared for insertion into Databricks SQL tables, 
+- Extract: Data is fetched from a public GitHub repository, split into two DataFrames, cleaned, and saved into CSV files.
+- Transform: The CSV files are read into pandas DataFrames, processed, and prepared for insertion into Databricks SQL tables, 
 which includes cleaning and transforming the data formats.
-Load: The cleaned and transformed data is loaded into Databricks SQL tables.
+- Load: The cleaned and transformed data is loaded into Databricks SQL tables.
 Complex Query Execution: After the data is loaded, the pipeline allows for running SQL queries. 
 
 # Complex Query Explanation
